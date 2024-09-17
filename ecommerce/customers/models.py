@@ -7,11 +7,11 @@ class Customer(models.Model):
     name=models.CharField(max_length=200)
     address=models.TextField()
     #User model is attached to user field in customer
-    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="customer profile",)
+    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="customer_profile",)
     phone=models.CharField(max_length=200)
     delete_status=models.IntegerField(choices=DELETE_CHOICES,default=LIVE)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
-    def str(self)->str:
+    def __str__(self):
         return self.name
